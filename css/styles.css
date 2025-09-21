@@ -2049,11 +2049,7 @@ a:hover {
     margin-bottom: var(--spacing-xl);
 }
 
-/* Hardware Upgrades section - 5 columns for 5 items */
-#hardware .service-features-grid {
-    grid-template-columns: repeat(5, 1fr);
-    width: 1300px;
-}
+/* Hardware Upgrades section - use same responsive grid as other sections */
 
 .feature-item {
     background: var(--bg-dark);
