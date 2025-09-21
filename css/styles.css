@@ -2053,9 +2053,9 @@ a:hover {
     margin-right: auto;
 }
 
-/* Hardware Upgrades section - 5 columns for 5 items */
+/* Hardware Upgrades section - use same responsive grid as other sections */
 #hardware .service-features-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     width: 1300px;
 }
 
