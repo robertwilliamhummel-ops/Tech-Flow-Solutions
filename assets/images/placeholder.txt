@@ -1,0 +1,62 @@
+# TechFlow Solutions - Image Assets
+
+This directory contains all image assets for the TechFlow Solutions website.
+
+## Image Requirements
+
+### Homepage Images:
+- hero-tech-workspace.jpg (1200x800) - Professional computer repair workspace
+- technician-portrait.jpg (600x600) - Professional technician photo
+- gta-service-map.jpg (800x600) - Greater Toronto Area service coverage map
+- testimonial-1.jpg (100x100) - Customer testimonial photo
+- testimonial-2.jpg (100x100) - Customer testimonial photo  
+- testimonial-3.jpg (100x100) - Customer testimonial photo
+
+### Services Page Images:
+- pc-repair-service.jpg (800x600) - PC repair service in action
+- networking-service.jpg (800x600) - Network setup and configuration
+- hardware-upgrade.jpg (800x600) - Computer hardware upgrade service
+
+### About Page Images:
+- about-professional.jpg (600x800) - Professional technician at work
+- professional-workspace.jpg (800x600) - Professional tech workspace
+- customer-consultation.jpg (600x400) - Customer consultation scene
+- personal-photo.jpg (400x400) - Personal photo of the business owner
+
+### Portfolio Page Images:
+- case-study-before.jpg (600x400) - Office setup before upgrade
+- case-study-after.jpg (600x400) - Office setup after upgrade
+- testimonial-business.jpg (80x80) - Business testimonial photo
+- portfolio-virus-removal.jpg (400x300) - Virus removal service
+- portfolio-ssd-upgrade.jpg (400x300) - SSD upgrade installation
+- portfolio-home-network.jpg (400x300) - Home network setup
+- portfolio-data-recovery.jpg (400x300) - Data recovery service
+- portfolio-custom-build.jpg (400x300) - Custom PC build
+- portfolio-office-network.jpg (400x300) - Office network installation
+- portfolio-wifi-optimization.jpg (400x300) - Wi-Fi optimization
+- portfolio-laptop-repair.jpg (400x300) - Laptop screen repair
+- testimonial-maria.jpg (80x80) - Customer testimonial photo
+- testimonial-david.jpg (80x80) - Customer testimonial photo
+- testimonial-jennifer.jpg (80x80) - Customer testimonial photo
+
+### Contact Page Images:
+- gta-service-map-detailed.jpg (1000x600) - Detailed GTA service coverage map
+
+## Image Guidelines:
+- All images should be optimized for web (compressed but high quality)
+- Use WebP format where possible for better compression
+- Include alt text for accessibility
+- Maintain consistent professional styling
+- Use high-resolution images that scale well on different devices
+
+## Placeholder Images:
+For development purposes, you can use placeholder images from:
+- https://picsum.photos/ for generic images
+- https://via.placeholder.com/ for specific dimensions
+- Professional stock photo services for final production images
+
+## Image Optimization:
+- Compress images using tools like TinyPNG or ImageOptim
+- Use appropriate dimensions for each use case
+- Consider lazy loading for better performance
+- Implement responsive images with srcset when needed

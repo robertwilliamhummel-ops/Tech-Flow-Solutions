@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechFlow Solutions Invoice Generator - Professional invoicing system for PC repair and networking services">
+    <title>Invoice Generator - TechFlow Solutions</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/invoice.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-microchip"></i>
+                    <span>TechFlow Solutions</span>
+                </div>
+                <h1>Invoice Generator</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Invoice Form -->
+            <div class="invoice-form-section">
+                <div class="form-card">
+                    <h2><i class="fas fa-file-invoice"></i> Create Invoice</h2>
+                    
+                    <!-- Customer Information -->
+                    <section class="form-section">
+                        <h3>Customer Information</h3>
+                        <div class="customer-controls">
+                            <select id="existing-customer" class="form-control">
+                                <option value="">Select existing customer or add new</option>
+                            </select>
+                            <button type="button" id="new-customer-btn" class="btn btn-secondary">
+                                <i class="fas fa-plus"></i> New Customer
+                            </button>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="customer-name">Customer Name *</label>
+                                <input type="text" id="customer-name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customer-company">Company</label>
+                                <input type="text" id="customer-company" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="customer-phone">Phone *</label>
+                                <input type="tel" id="customer-phone" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customer-email">Email</label>
+                                <input type="email" id="customer-email" class="form-control">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="customer-address">Address</label>
+                                <textarea id="customer-address" class="form-control" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="button" id="save-customer-btn" class="btn btn-outline">
+                            <i class="fas fa-save"></i> Save Customer
+                        </button>
+                    </section>
+
+                    <!-- Invoice Details -->
+                    <section class="form-section">
+                        <h3>Invoice Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="invoice-number">Invoice Number</label>
+                                <input type="text" id="invoice-number" class="form-control" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="invoice-date">Date</label>
+                                <input type="date" id="invoice-date" class="form-control" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Service Information -->
+                    <section class="form-section">
+                        <h3>Services</h3>
+                        
+                        <!-- Hourly Services -->
+                        <div class="service-type-section">
+                            <h4><i class="fas fa-clock"></i> Hourly Services</h4>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="service-type">Service Type</label>
+                                    <select id="service-type" class="form-control">
+                                        <option value="">Select service type</option>
+                                        <option value="remote" data-rate="80">Remote Support - $80/hour</option>
+                                        <option value="onsite" data-rate="100">On-site Standard - $100/hour</option>
+                                        <option value="emergency" data-rate="110">Emergency/Same-day - $110/hour</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="service-description">Service Description</label>
+                                    <select id="service-description" class="form-control">
+                                        <option value="">Select service description</option>
+                                        <option value="PC Repair & Diagnostics">PC Repair & Diagnostics</option>
+                                        <option value="Virus & Malware Removal">Virus & Malware Removal</option>
+                                        <option value="Performance Optimization">Performance Optimization</option>
+                                        <option value="Hardware Installation">Hardware Installation</option>
+                                        <option value="Network Setup & Configuration">Network Setup & Configuration</option>
+                                        <option value="Data Recovery">Data Recovery</option>
+                                        <option value="Software Installation & Setup">Software Installation & Setup</option>
+                                        <option value="System Maintenance">System Maintenance</option>
+                                        <option value="Custom PC Build">Custom PC Build</option>
+                                        <option value="Remote Support Session">Remote Support Session</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hours-worked">Hours Worked</label>
+                                    <input type="number" id="hours-worked" class="form-control" min="0" step="0.25" placeholder="0.00">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hourly-rate">Rate per Hour</label>
+                                    <input type="number" id="hourly-rate" class="form-control" min="0" step="1" readonly>
+                                </div>
+                            </div>
+                            <div class="hourly-total">
+                                <span class="total-label">Hourly Services Total:</span>
+                                <span id="hourly-total" class="total-amount">$0.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Custom Line Items -->
+                        <div class="service-type-section">
+                            <h4><i class="fas fa-list"></i> Custom Line Items</h4>
+                            <div id="line-items-container">
+                                <!-- Line items will be added dynamically -->
+                            </div>
+                            <button type="button" id="add-line-item-btn" class="btn btn-secondary">
+                                <i class="fas fa-plus"></i> Add Line Item
+                            </button>
+                            <div class="line-items-total">
+                                <span class="total-label">Line Items Total:</span>
+                                <span id="line-items-total" class="total-amount">$0.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Invoice Total -->
+                        <div class="invoice-totals">
+                            <div class="subtotal-row">
+                                <span class="total-label">Subtotal:</span>
+                                <span id="subtotal" class="total-amount">$0.00</span>
+                            </div>
+                            <div class="tax-row">
+                                <span class="total-label">HST (13%):</span>
+                                <span id="tax-amount" class="total-amount">$0.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span class="total-label">Total:</span>
+                                <span id="final-total" class="total-amount">$0.00</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+                        <button type="button" id="preview-invoice-btn" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> Preview Invoice
+                        </button>
+                        <button type="button" id="print-invoice-btn" class="btn btn-secondary">
+                            <i class="fas fa-print"></i> Print Invoice
+                        </button>
+                        <button type="button" id="clear-form-btn" class="btn btn-outline">
+                            <i class="fas fa-refresh"></i> Clear Form
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoice Preview -->
+            <div id="invoice-preview" class="invoice-preview-section" style="display: none;">
+                <div class="invoice-document">
+                    <!-- Invoice preview will be generated here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/customer.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/invoice.js"></script>
+</body>
+</html>
