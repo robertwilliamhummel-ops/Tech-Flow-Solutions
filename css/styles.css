@@ -3193,25 +3193,7 @@ a:hover {
         align-items: center !important;
     }
     
-    /* Enhanced mobile collapsible styling for small screens */
-    .service-header.service-toggle {
-        border: 3px solid var(--primary-blue);
-        border-radius: var(--radius-xl);
-        box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
-        margin-bottom: var(--spacing-lg);
-        padding: var(--spacing-lg);
-        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-dark) 100%);
-    }
-    
-    .service-header.service-toggle::before {
-        height: 6px;
-        background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
-    }
-    
-    .service-header.service-toggle:active {
-        transform: translateY(1px);
-        box-shadow: 0 2px 8px rgba(88, 166, 255, 0.4);
-    }
+    /* Remove enhanced mobile collapsible styling - keep same as desktop */
     
     .click-hint {
         background: var(--accent-blue);
@@ -3480,63 +3462,9 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    .click-hint .desktop-text {
-        display: none;
-    }
+    /* Remove mobile-specific text - use same text as desktop */
     
-    .click-hint .mobile-text {
-        display: inline;
-    }
-    
-    /* Enhanced mobile collapsible styling */
-    .service-header.service-toggle {
-        border: 2px solid var(--primary-blue);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-        margin-bottom: var(--spacing-md);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .service-header.service-toggle::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: var(--primary-blue);
-        opacity: 0.8;
-    }
-    
-    .service-header.service-toggle:hover,
-    .service-header.service-toggle:focus {
-        border-color: var(--accent-blue);
-        box-shadow: var(--shadow-lg);
-        transform: translateY(-2px);
-    }
-    
-    .click-hint {
-        background: var(--primary-blue);
-        color: var(--text-white);
-        padding: var(--spacing-xs) var(--spacing-sm);
-        border-radius: var(--radius-md);
-        font-weight: 600;
-        font-size: 0.8rem;
-        margin-top: var(--spacing-xs);
-    }
-    
-    .toggle-arrow {
-        background: var(--primary-blue);
-        color: var(--text-white);
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-    }
+    /* Remove enhanced mobile collapsible styling - keep same as desktop */
 }
 
 /* Subtle pulse animation for collapsed sections */
