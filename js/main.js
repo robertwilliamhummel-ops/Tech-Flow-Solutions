@@ -1347,33 +1347,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Emergency Contact Handling
+ * Phone Link Analytics Tracking (Optional)
  */
-function handleEmergencyContact() {
-    // Track emergency contact clicks for analytics
+function trackPhoneClick() {
+    // Track phone contact clicks for analytics only
     if (typeof gtag !== 'undefined') {
-        gtag('event', 'emergency_contact', {
+        gtag('event', 'phone_contact', {
             'event_category': 'contact',
-            'event_label': 'emergency_phone'
+            'event_label': 'phone_click'
         });
     }
-    
-    // Show emergency contact modal on mobile if needed
-    if (window.innerWidth < 768) {
-        const confirmed = confirm('Call TechFlow Solutions emergency line now?\n\n(416) 555-1234\n\nEmergency service rates apply.');
-        if (confirmed) {
-            window.location.href = 'tel:+14165551234';
-        }
-        return false;
-    }
-    
-    return true;
 }
 
-// Add emergency contact tracking
+// Add phone click tracking (optional analytics only)
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.emergency-btn, a[href^="tel:"]').forEach(link => {
-        link.addEventListener('click', handleEmergencyContact);
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', trackPhoneClick);
     });
 });
 
