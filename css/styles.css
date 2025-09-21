@@ -2045,17 +2045,13 @@ a:hover {
 .service-features-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
-    width: 1300px;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* Hardware Upgrades section - use same responsive grid as other sections */
+/* Hardware Upgrades section - 5 columns for 5 items */
 #hardware .service-features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     width: 1300px;
 }
 
