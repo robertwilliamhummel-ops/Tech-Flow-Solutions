@@ -2044,12 +2044,9 @@ a:hover {
 
 .service-features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-sm);
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
-    width: 1300px;
-    max-width: 100%;
-    margin: 0 auto var(--spacing-xl) auto;
 }
 
 /* Hardware Upgrades section - 5 columns for 5 items */
@@ -3100,9 +3097,19 @@ a:hover {
     }
 }
 
+@media (min-width: 768px) {
+    .service-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
 @media (min-width: 1024px) {
     .service-features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         width: 1300px;
+        max-width: 100%;
+        margin: 0 auto var(--spacing-xl) auto;
         gap: var(--spacing-sm);
     }
     
