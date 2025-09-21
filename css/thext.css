@@ -3332,20 +3332,7 @@ a:hover {
     opacity: 1;
 }
 
-/* Mobile-specific text styling for click hints */
-.click-hint .mobile-text {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .click-hint .desktop-text {
-        display: none;
-    }
-    
-    .click-hint .mobile-text {
-        display: inline;
-    }
-}
+/* Remove mobile-specific text styling - use same text as desktop */
 
 /* Subtle pulse animation for collapsed sections */
 @keyframes subtle-pulse {
