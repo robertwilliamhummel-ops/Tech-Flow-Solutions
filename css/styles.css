@@ -1577,6 +1577,12 @@ a:hover {
         transform: none !important;
     }
     
+    /* Remove any glow/box-shadow from Home button when not active */
+    .nav-menu .nav-link[href="index.html"]:not(.active) {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    
     /* Hover effects for all non-active links */
     .nav-menu .nav-link:not(.active):hover {
         background: rgba(88, 166, 255, 0.15) !important;
