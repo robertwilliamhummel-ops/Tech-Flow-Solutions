@@ -1,6 +1,6 @@
-/* ===================================
+/* 
    TechFlow Solutions - Main Stylesheet
-   ================================== */
+   ====== */
 
 /* CSS Reset and Base Styles */
 * {
@@ -529,45 +529,45 @@ a:hover {
     .nav-menu {
         width: 100%;
         max-width: 100vw;
-<<<<<<< HEAD
+
         padding: 50px var(--spacing-md) var(--spacing-md);
-=======
+
         padding: 70px var(--spacing-md) var(--spacing-md);
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
+
     }
     
     .nav-link {
         font-size: 1rem;
-<<<<<<< HEAD
+
         padding: 8px var(--spacing-md);
         margin: 1px 0;
         min-height: 38px;
-=======
+
         padding: var(--spacing-sm) var(--spacing-md);
         margin: 1px 0;
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
+
     }
 }
 
 @media (max-width: 320px) {
     .nav-menu {
-<<<<<<< HEAD
+
         padding: 40px var(--spacing-sm) var(--spacing-sm);
-=======
+
         padding: 60px var(--spacing-sm) var(--spacing-sm);
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
+
     }
     
     .nav-link {
         font-size: 0.95rem;
-<<<<<<< HEAD
+
         padding: 6px var(--spacing-sm);
         margin: 1px 0;
         min-height: 36px;
-=======
+
         padding: 8px var(--spacing-sm);
         margin: 1px 0;
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
+
     }
     
     .nav-link::before {
@@ -579,26 +579,26 @@ a:hover {
 /* Landscape orientation adjustments */
 @media (max-width: 767px) and (orientation: landscape) {
     .nav-menu {
-<<<<<<< HEAD
+
         padding: 30px var(--spacing-md) var(--spacing-md);
-=======
+
         padding: 50px var(--spacing-md) var(--spacing-md);
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
+
         height: 100vh;
         overflow-y: auto;
     }
     
     .nav-link {
-<<<<<<< HEAD
+
         padding: 4px var(--spacing-md);
         margin: 1px 0;
         font-size: 0.95rem;
         min-height: 32px;
-=======
+
         padding: 6px var(--spacing-md);
         margin: 1px 0;
         font-size: 0.95rem;
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
+
     }
     
     .nav-link::before {
@@ -1412,11 +1412,7 @@ a:hover {
         -webkit-backdrop-filter: blur(20px);
         border-left: 1px solid rgba(88, 166, 255, 0.2);
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-<<<<<<< HEAD
         padding: 60px var(--spacing-md) var(--spacing-md);
-=======
-        padding: 80px var(--spacing-md) var(--spacing-lg);
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
         justify-content: flex-start;
         transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         z-index: 1000;
@@ -1454,13 +1450,8 @@ a:hover {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-<<<<<<< HEAD
         padding: 10px var(--spacing-md);
         margin: 1px 0;
-=======
-        padding: var(--spacing-sm) var(--spacing-md);
-        margin: 2px 0;
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
         font-size: 1rem;
         font-weight: 500;
         color: var(--text-primary);
@@ -1468,11 +1459,7 @@ a:hover {
         border-radius: var(--radius-md);
         transition: all var(--transition-normal);
         position: relative;
-<<<<<<< HEAD
         min-height: 40px;
-=======
-        min-height: 44px;
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
         text-align: left;
         gap: var(--spacing-sm);
     }
@@ -1518,11 +1505,11 @@ a:hover {
         background: var(--bg-gradient);
         color: var(--text-white);
         font-weight: 600;
-<<<<<<< HEAD
+
         margin-top: 4px;
-=======
+
         margin-top: var(--spacing-sm);
->>>>>>> a645dab9ac2fff6665dd5ff7ad02a3c1114bdd3b
+
         box-shadow: 0 4px 15px rgba(88, 166, 255, 0.3);
     }
     
@@ -3472,9 +3459,9 @@ a:hover {
     }
 }
 
-/* ===================================
+/* 
    MOBILE OPTIMIZATION - PHASE 5
-   ================================== */
+   ====== */
 
 /* Mobile-First Service Section Improvements */
 @media (max-width: 480px) {
@@ -3998,9 +3985,9 @@ a:hover {
     }
 }
 
-/* ===================================
+/* 
    BOOKING PAGE STYLES
-   ================================== */
+   ====== */
 
 /* Booking Process Steps */
 .booking-process {
@@ -4765,9 +4752,9 @@ a:hover {
 }
 
 
-/* ===================================
+/* 
    Remote Support Page Styles
-   ================================== */
+   ====== */
 
 /* Remote Hero Section */
 .remote-hero {
@@ -6634,9 +6621,9 @@ a:hover {
 }
 
 
-/* ===================================
+/* 
    Portfolio Card Styles
-   ================================== */
+   ====== */
 
 /* Featured Portfolio Cards Section */
 .featured-portfolio-cards {
@@ -7167,9 +7154,9 @@ a:hover {
 }
 
 
-/* ===================================
+/* 
    About Page - Simplified Styles
-   ================================== */
+   ====== */
 
 /* About Hero Simple */
 .about-hero-simple {
@@ -7583,9 +7570,9 @@ a:hover {
 }
 
 
-/* ===================================
+/* 
    Portfolio Page - Flashy Styles
-   ================================== */
+   ====== */
 
 /* Portfolio Hero */
 .portfolio-hero {
@@ -8409,9 +8396,9 @@ a:hover {
 }
 
 
-/* ===================================
+/* 
    Sticky CTA Bar Styles
-   ================================== */
+   ====== */
 
 .sticky-cta-bar {
     position: fixed;
@@ -8545,9 +8532,9 @@ a:hover {
     }
 }
 
-/* ===================================
+/* 
    Service Section CTA Styles
-   ================================== */
+   ====== */
 
 .service-cta {
     margin-top: var(--spacing-xl);
@@ -8596,9 +8583,9 @@ a:hover {
 }
 
 
-/* ===================================
+/* 
    PHASE 6: REVENUE FEATURES STYLES
-   ================================== */
+   ====== */
 
 /* Service Bundle Packages */
 .bundle-section {
