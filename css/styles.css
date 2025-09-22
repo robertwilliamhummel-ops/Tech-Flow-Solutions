@@ -530,9 +530,7 @@ a:hover {
         width: 100%;
         max-width: 100vw;
 
-        padding: 50px var(--spacing-md) var(--spacing-md);
-
-        padding: 70px var(--spacing-md) var(--spacing-md);
+        padding: 85px var(--spacing-md) var(--spacing-md);
 
     }
     
@@ -552,9 +550,7 @@ a:hover {
 @media (max-width: 320px) {
     .nav-menu {
 
-        padding: 40px var(--spacing-sm) var(--spacing-sm);
-
-        padding: 60px var(--spacing-sm) var(--spacing-sm);
+        padding: 75px var(--spacing-sm) var(--spacing-sm);
 
     }
     
@@ -580,9 +576,7 @@ a:hover {
 @media (max-width: 767px) and (orientation: landscape) {
     .nav-menu {
 
-        padding: 30px var(--spacing-md) var(--spacing-md);
-
-        padding: 50px var(--spacing-md) var(--spacing-md);
+        padding: 65px var(--spacing-md) var(--spacing-md);
 
         height: 100vh;
         overflow-y: auto;
@@ -1412,7 +1406,7 @@ a:hover {
         -webkit-backdrop-filter: blur(20px);
         border-left: 1px solid rgba(88, 166, 255, 0.2);
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-        padding: 60px var(--spacing-md) var(--spacing-md);
+        padding: 75px var(--spacing-md) var(--spacing-md);
         justify-content: flex-start;
         transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         z-index: 1000;
