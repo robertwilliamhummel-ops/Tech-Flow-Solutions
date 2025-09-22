@@ -1511,29 +1511,17 @@ a:hover {
         background: rgba(255, 255, 255, 0.8);
     }
     
-    /* DEBUGGING: Add visible indicators to see what's happening */
+    /* Correct active states - now we know the HTML classes work! */
     .nav-menu .nav-link.active {
-        background: rgba(255, 0, 0, 0.5) !important; /* RED background for debugging */
-        color: white !important;
-        border: 3px solid red !important;
+        background: rgba(88, 166, 255, 0.2) !important;
+        color: var(--primary-blue) !important;
+        border: none !important;
     }
     
     .nav-menu .nav-link.active::before {
         opacity: 1 !important;
-        background: red !important;
-        box-shadow: 0 0 12px rgba(255, 0, 0, 0.8) !important;
-    }
-    
-    /* Add green background to Services link for debugging */
-    .nav-menu .nav-link[href="services.html"].active {
-        background: rgba(0, 255, 0, 0.5) !important; /* GREEN for Services */
-        border: 3px solid green !important;
-    }
-    
-    /* Add blue background to About link for debugging */
-    .nav-menu .nav-link[href="about.html"].active {
-        background: rgba(0, 0, 255, 0.5) !important; /* BLUE for About */
-        border: 3px solid blue !important;
+        background: var(--accent-blue) !important;
+        box-shadow: 0 0 12px rgba(121, 192, 255, 0.6) !important;
     }
     
     /* Nuclear approach: Force remove active state from Home link specifically on non-home pages */
