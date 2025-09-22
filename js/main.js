@@ -124,8 +124,14 @@ function initializeNavigation() {
             // Update ARIA attributes
             hamburger.setAttribute('aria-expanded', isMenuOpen);
             
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+            // Prevent body scroll when menu is open, but allow menu scroll
+            if (isMenuOpen) {
+                document.body.style.overflow = 'hidden';
+                navMenu.style.overflowY = 'auto';
+            } else {
+                document.body.style.overflow = '';
+                navMenu.style.overflowY = '';
+            }
             
             // Focus management
             if (isMenuOpen) {
@@ -149,6 +155,7 @@ function initializeNavigation() {
                 backdrop.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
+                navMenu.style.overflowY = '';
             }
         }
         
@@ -175,6 +182,15 @@ function initializeNavigation() {
             if (window.innerWidth > 767 && isMenuOpen) {
                 closeMenu();
             }
+        });
+        
+        // Prevent backdrop scroll but allow menu scroll
+        backdrop.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+        
+        navMenu.addEventListener('touchmove', function(e) {
+            e.stopPropagation();
         });
     }
 
