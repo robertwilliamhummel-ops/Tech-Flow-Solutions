@@ -1523,6 +1523,25 @@ a:hover {
         box-shadow: 0 0 12px rgba(121, 192, 255, 0.6) !important;
     }
     
+    /* Nuclear approach: Force remove active state from Home link specifically on non-home pages */
+    .nav-menu .nav-link[href="index.html"] {
+        background: transparent !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .nav-menu .nav-link[href="index.html"]::before {
+        opacity: 0.6 !important;
+        background: var(--primary-blue) !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    
+    .nav-menu .nav-link[href="index.html"]:hover {
+        background: rgba(88, 166, 255, 0.15) !important;
+        color: var(--primary-blue) !important;
+        transform: translateX(6px) !important;
+    }
+    
     /* Force remove active state from all nav links first, then let HTML active classes take precedence */
     .nav-menu .nav-link {
         background: transparent !important;
