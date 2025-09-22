@@ -1511,6 +1511,18 @@ a:hover {
         background: rgba(255, 255, 255, 0.8);
     }
     
+    /* Force correct active states - override any caching issues */
+    .nav-menu .nav-link.active {
+        background: rgba(88, 166, 255, 0.2) !important;
+        color: var(--primary-blue) !important;
+    }
+    
+    .nav-menu .nav-link.active::before {
+        opacity: 1 !important;
+        background: var(--accent-blue) !important;
+        box-shadow: 0 0 12px rgba(121, 192, 255, 0.6) !important;
+    }
+    
     .nav-link.cta-button:hover {
         transform: translateX(6px) translateY(-1px);
         box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4);
