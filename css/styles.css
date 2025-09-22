@@ -1552,6 +1552,7 @@ a:hover {
         color: var(--text-primary) !important;
     }
     
+    /* Reset ALL nav link dots to default state - this should fix the persistent Home outline */
     .nav-menu .nav-link::before {
         opacity: 0.6 !important;
         background: var(--primary-blue) !important;
@@ -1559,14 +1560,22 @@ a:hover {
         transform: none !important;
     }
     
+    /* Specifically reset Home button dot when it's NOT active */
+    .nav-menu .nav-link[href="index.html"]:not(.active)::before {
+        opacity: 0.6 !important;
+        background: var(--primary-blue) !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    
     /* Hover effects for all non-active links */
-    .nav-menu .nav-link:hover {
+    .nav-menu .nav-link:not(.active):hover {
         background: rgba(88, 166, 255, 0.15) !important;
         color: var(--primary-blue) !important;
         transform: translateX(6px) !important;
     }
     
-    .nav-menu .nav-link:hover::before {
+    .nav-menu .nav-link:not(.active):hover::before {
         opacity: 1 !important;
         transform: scale(1.2) !important;
         box-shadow: 0 0 8px rgba(88, 166, 255, 0.5) !important;
