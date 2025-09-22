@@ -1546,32 +1546,12 @@ a:hover {
         box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4) !important;
     }
     
-    /* Nuclear approach: Force remove active state from Home link specifically on non-home pages */
-    .nav-menu .nav-link[href="index.html"] {
-        background: transparent !important;
-        color: var(--text-primary) !important;
-    }
-    
-    .nav-menu .nav-link[href="index.html"]::before {
-        opacity: 0.6 !important;
-        background: var(--primary-blue) !important;
-        box-shadow: none !important;
-        transform: none !important;
-    }
-    
-    .nav-menu .nav-link[href="index.html"]:hover {
-        background: rgba(88, 166, 255, 0.15) !important;
-        color: var(--primary-blue) !important;
-        transform: translateX(6px) !important;
-    }
-    
-    /* Force remove active state from all nav links first, then let HTML active classes take precedence */
+    /* CLEAN SOLUTION: Reset all nav links, then let .active class work properly */
     .nav-menu .nav-link {
         background: transparent !important;
         color: var(--text-primary) !important;
     }
     
-    /* Reset ALL nav link dots to default state */
     .nav-menu .nav-link::before {
         opacity: 0.6 !important;
         background: var(--primary-blue) !important;
@@ -1579,24 +1559,14 @@ a:hover {
         transform: none !important;
     }
     
-    /* Nuclear approach: Completely reset Home link styling */
-    .nav-menu .nav-link[href="index.html"]:not(.active)::before {
-        opacity: 0.6 !important;
-        background: var(--primary-blue) !important;
-        box-shadow: none !important;
-        transform: none !important;
-        width: 8px !important;
-        height: 8px !important;
+    /* Hover effects for all non-active links */
+    .nav-menu .nav-link:hover {
+        background: rgba(88, 166, 255, 0.15) !important;
+        color: var(--primary-blue) !important;
+        transform: translateX(6px) !important;
     }
     
-    /* Ensure Home link only gets active styling when it actually has active class */
-    .nav-menu .nav-link[href="index.html"]:not(.active) {
-        background: transparent !important;
-        color: var(--text-primary) !important;
-    }
-    
-    /* Force override any hover effects on non-active Home link */
-    .nav-menu .nav-link[href="index.html"]:not(.active):hover::before {
+    .nav-menu .nav-link:hover::before {
         opacity: 1 !important;
         transform: scale(1.2) !important;
         box-shadow: 0 0 8px rgba(88, 166, 255, 0.5) !important;
