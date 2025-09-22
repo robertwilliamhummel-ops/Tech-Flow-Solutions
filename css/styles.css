@@ -5912,10 +5912,8 @@ a:hover {
 .remote-support-highlight {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    width: 1300px;           /* Fixed width for consistency with service-features-grid */
-    max-width: 100%;         /* Mobile responsive */
-    margin: 0 auto 32px auto; /* Center alignment like service-features-grid */
-    gap: var(--spacing-sm);  /* Use consistent spacing variable */
+    gap: 24px;
+    margin: 32px 0;
     position: relative;
     z-index: 2;
 }
