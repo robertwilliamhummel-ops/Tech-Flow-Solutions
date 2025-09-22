@@ -12,6 +12,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
@@ -21,11 +23,6 @@ body {
     background-color: var(--bg-primary);
     overflow-x: hidden;
     position: relative;
-}
-
-/* Prevent horizontal scrolling on all devices */
-html {
-    overflow-x: hidden;
 }
 
 /* CSS Variables - TechFlow Dark Theme */
