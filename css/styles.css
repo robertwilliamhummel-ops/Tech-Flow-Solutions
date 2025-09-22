@@ -29,28 +29,11 @@ body {
     html, body {
         overflow-x: hidden;
         max-width: 100vw;
-        /* DIAGNOSTIC: Ensure vertical scrolling is not blocked */
-        overflow-y: auto;
-        height: auto;
-        min-height: 100vh;
     }
     
     /* Ensure mobile menu doesn't create horizontal overflow */
     .nav-menu {
         right: -320px !important; /* Use fixed pixel value instead of percentage */
-    }
-    
-    /* DIAGNOSTIC: Fix remote support section scrolling on mobile */
-    .remote-support-service {
-        overflow: visible;
-        height: auto;
-        min-height: auto;
-    }
-    
-    .remote-support-highlight {
-        overflow: visible;
-        height: auto;
-        min-height: auto;
     }
 }
 
