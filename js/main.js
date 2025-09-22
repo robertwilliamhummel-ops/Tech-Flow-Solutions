@@ -196,6 +196,13 @@ function initializeNavigation() {
 
     // Active navigation highlighting
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // First, remove all existing active classes
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Then add active class to the correct current page
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {
