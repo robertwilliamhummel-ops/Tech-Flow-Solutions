@@ -326,6 +326,12 @@ a:hover {
     background: rgba(88, 166, 255, 0.1);
 }
 
+/* Add blue border to active navigation link */
+.nav-link.active {
+    border: 2px solid var(--primary-blue);
+    border-radius: var(--radius-sm);
+}
+
 .nav-link.cta-button {
     background: var(--bg-gradient);
     color: var(--text-white);
@@ -1493,6 +1499,8 @@ a:hover {
     .nav-link.active {
         background: rgba(88, 166, 255, 0.2);
         color: var(--primary-blue);
+        border: 2px solid var(--primary-blue);
+        border-radius: var(--radius-sm);
     }
     
     .nav-link.cta-button {
@@ -1515,7 +1523,8 @@ a:hover {
     .nav-menu .nav-link.active {
         background: rgba(88, 166, 255, 0.2) !important;
         color: var(--primary-blue) !important;
-        border: none !important;
+        border: 2px solid var(--primary-blue) !important;
+        border-radius: var(--radius-sm) !important;
     }
     
     .nav-menu .nav-link.active::before {
