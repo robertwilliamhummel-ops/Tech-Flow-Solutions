@@ -20,6 +20,12 @@ body {
     color: var(--text-primary);
     background-color: var(--bg-primary);
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Prevent horizontal scrolling on all devices */
+html {
+    overflow-x: hidden;
 }
 
 /* CSS Variables - TechFlow Dark Theme */
