@@ -99,5 +99,68 @@ This technique works for **any CSS grid layout**, not just card grids:
 - **Content Type**: Text blocks, images, forms, or any grid content
 - **Same Root Issue**: All suffer from inconsistent container widths
 
+## Mobile Collapsible Behavior Fix
+
+### Problem Discovery
+Mobile collapsible sections were displaying inconsistently - some worked perfectly while others had layout issues, even when using identical HTML structure and CSS classes.
+
+### Root Cause Analysis
+The issue wasn't with the collapsible JavaScript or CSS styling, but with **grid container width consistency**:
+
+- **Working Sections**: PC Repair & Maintenance and Networking Solutions (6 items each)
+- **Broken Sections**: Hardware Upgrades (5 items), Urgent Support (5 items), Service Bundles (3 items)
+
+### The Critical Discovery
+**Card count and grid width directly affect mobile collapsible behavior.** Sections with different item counts created different container widths, which interfered with mobile layout calculations and collapsible functionality.
+
+### The Fix Strategy
+1. **Standardize Item Count**: Ensure all sections have 6 items (matching working sections)
+2. **Unify Grid Classes**: Convert all sections to use `service-features-grid` with `feature-item`
+3. **Remove CSS Overrides**: Eliminate section-specific grid rules that prevent responsive behavior
+4. **Apply Width Standardization**: Let the media query handle consistent width across all sections
+
+### Implementation Example
+```css
+/* Media query that applies to all service-features-grid */
+@media (min-width: 1024px) {
+    .service-features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        width: 1300px;           /* Fixed width for consistency */
+        max-width: 100%;         /* Mobile responsive */
+        margin: 0 auto var(--spacing-xl) auto;
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Remove section-specific overrides like this: */
+/* #hardware .service-features-grid { ... } */
+```
+
+### HTML Structure Standardization
+```html
+<!-- All sections now use identical structure -->
+<div class="service-features-grid">
+    <div class="feature-item">
+        <i class="fas fa-icon"></i>
+        <h4>Service Name</h4>
+        <p>Service description</p>
+        <span class="feature-price">$Price</span>
+    </div>
+    <!-- Repeat for 6 items total -->
+</div>
+```
+
+### Why This Fixed Mobile Collapsible Issues
+- **Consistent Container Width**: All sections now have identical 1300px width
+- **Predictable Mobile Wrapping**: 6 items wrap consistently (4+2 layout on mobile)
+- **Unified CSS Behavior**: All sections inherit the same responsive grid rules
+- **Eliminated Layout Conflicts**: No more width variations that interfered with collapsible calculations
+
+### Key Insight
+**Mobile collapsible functionality is sensitive to container width consistency.** Even with identical HTML structure and CSS classes, different grid widths caused by varying item counts can break mobile layout behavior.
+
+### Maintenance Rule
+**When adding cards to one section, add to all sections to maintain the 6-item pattern** - this guarantees consistent mobile behavior across all collapsible sections.
+
 ## Lesson Learned
-**Simple fixed widths work better than complex responsive calculations** when you need identical section widths across different grid configurations. The technique is universal - it applies to any CSS grid container, not just card-based layouts.
+**Simple fixed widths work better than complex responsive calculations** when you need identical section widths across different grid configurations. This principle extends beyond visual consistency to functional behavior - mobile interactions and collapsible sections require width standardization to work reliably across all sections.
