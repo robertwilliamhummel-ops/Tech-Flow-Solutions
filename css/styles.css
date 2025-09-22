@@ -1716,6 +1716,17 @@ a:hover {
     outline-offset: 2px;
 }
 
+/* Fix persistent blue outline on navigation links */
+.nav-link:focus {
+    outline: none;
+}
+
+/* Maintain keyboard accessibility with subtle focus indicator */
+.nav-link:focus-visible {
+    outline: 1px solid var(--primary-blue);
+    outline-offset: 1px;
+}
+
 /* Print Styles */
 @media print {
     .header,

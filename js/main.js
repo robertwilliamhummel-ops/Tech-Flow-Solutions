@@ -195,6 +195,38 @@ function initializeNavigation() {
         });
     }
 
+    // Fix persistent focus on navigation links
+    function initializeFocusManagement() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Remove focus from nav links when clicking elsewhere
+        document.addEventListener('click', function(e) {
+            // If the clicked element is not a nav link, blur all nav links
+            if (!e.target.closest('.nav-link')) {
+                navLinks.forEach(link => {
+                    if (link === document.activeElement) {
+                        link.blur();
+                    }
+                });
+            }
+        });
+        
+        // Also remove focus when pressing Enter on nav links (after navigation)
+        navLinks.forEach(link => {
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    // Small delay to allow navigation, then blur
+                    setTimeout(() => {
+                        this.blur();
+                    }, 100);
+                }
+            });
+        });
+    }
+    
+    // Initialize focus management
+    initializeFocusManagement();
+
     // Skip JavaScript active state management - rely on HTML active classes
     // The HTML files already have correct active states set manually
     console.log('🔍 NAVIGATION DEBUG: Skipping JS active state management, using HTML active classes');
