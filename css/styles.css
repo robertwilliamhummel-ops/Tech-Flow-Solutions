@@ -1571,10 +1571,20 @@ a:hover {
         color: var(--text-primary) !important;
     }
     
+    /* Reset ALL nav link dots to default state */
     .nav-menu .nav-link::before {
         opacity: 0.6 !important;
         background: var(--primary-blue) !important;
         box-shadow: none !important;
+        transform: none !important;
+    }
+    
+    /* Remove any persistent styling from Home link specifically */
+    .nav-menu .nav-link[href="index.html"]::before {
+        opacity: 0.6 !important;
+        background: var(--primary-blue) !important;
+        box-shadow: none !important;
+        transform: none !important;
     }
     
     .nav-link.cta-button:hover {
