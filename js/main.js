@@ -106,20 +106,75 @@ function initializeNavigation() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const backdrop = document.querySelector('.mobile-menu-backdrop');
+    let isMenuOpen = false;
 
-    // Mobile menu toggle
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+    // Enhanced mobile menu toggle with accessibility
+    if (hamburger && navMenu && backdrop) {
+        
+        // Toggle menu function
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            // Update classes
+            hamburger.classList.toggle('active', isMenuOpen);
+            navMenu.classList.toggle('active', isMenuOpen);
+            backdrop.classList.toggle('active', isMenuOpen);
+            
+            // Update ARIA attributes
+            hamburger.setAttribute('aria-expanded', isMenuOpen);
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+            
+            // Focus management
+            if (isMenuOpen) {
+                // Focus first menu item when opening
+                const firstLink = navMenu.querySelector('.nav-link');
+                if (firstLink) {
+                    setTimeout(() => firstLink.focus(), 100);
+                }
+            } else {
+                // Return focus to hamburger when closing
+                hamburger.focus();
+            }
+        }
+        
+        // Close menu function
+        function closeMenu() {
+            if (isMenuOpen) {
+                isMenuOpen = false;
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
-            });
+                backdrop.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Hamburger click handler
+        hamburger.addEventListener('click', toggleMenu);
+        
+        // Backdrop click handler
+        backdrop.addEventListener('click', closeMenu);
+        
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 767 && isMenuOpen) {
+                closeMenu();
+            }
         });
     }
 

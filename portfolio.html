@@ -33,7 +33,8 @@
                     </a>
                 </div>
                 
-                <ul class="nav-menu">
+                <div class="mobile-menu-backdrop"></div>
+                <ul class="nav-menu" id="mobile-nav-menu" role="navigation" aria-label="Main navigation">
                     <li class="nav-item">
                         <a href="index.html" class="nav-link">Home</a>
                     </li>
@@ -64,11 +65,11 @@
                     </a>
                 </div>
                 
-                <div class="hamburger">
+                <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-nav-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
