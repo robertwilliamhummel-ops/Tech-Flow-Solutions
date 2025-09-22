@@ -1523,6 +1523,18 @@ a:hover {
         box-shadow: 0 0 12px rgba(121, 192, 255, 0.6) !important;
     }
     
+    /* Force remove active state from all nav links first, then let HTML active classes take precedence */
+    .nav-menu .nav-link {
+        background: transparent !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .nav-menu .nav-link::before {
+        opacity: 0.6 !important;
+        background: var(--primary-blue) !important;
+        box-shadow: none !important;
+    }
+    
     .nav-link.cta-button:hover {
         transform: translateX(6px) translateY(-1px);
         box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4);
