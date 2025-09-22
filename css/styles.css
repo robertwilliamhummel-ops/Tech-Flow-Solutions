@@ -1579,12 +1579,27 @@ a:hover {
         transform: none !important;
     }
     
-    /* Remove any persistent styling from Home link specifically */
-    .nav-menu .nav-link[href="index.html"]::before {
+    /* Nuclear approach: Completely reset Home link styling */
+    .nav-menu .nav-link[href="index.html"]:not(.active)::before {
         opacity: 0.6 !important;
         background: var(--primary-blue) !important;
         box-shadow: none !important;
         transform: none !important;
+        width: 8px !important;
+        height: 8px !important;
+    }
+    
+    /* Ensure Home link only gets active styling when it actually has active class */
+    .nav-menu .nav-link[href="index.html"]:not(.active) {
+        background: transparent !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Force override any hover effects on non-active Home link */
+    .nav-menu .nav-link[href="index.html"]:not(.active):hover::before {
+        opacity: 1 !important;
+        transform: scale(1.2) !important;
+        box-shadow: 0 0 8px rgba(88, 166, 255, 0.5) !important;
     }
     
     .nav-link.cta-button:hover {
