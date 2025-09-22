@@ -106,6 +106,7 @@ function initializeNavigation() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.nav-menu .nav-link'); // Only mobile nav links
     const backdrop = document.querySelector('.mobile-menu-backdrop');
     let isMenuOpen = false;
 
@@ -194,14 +195,9 @@ function initializeNavigation() {
         });
     }
 
-    // Active navigation highlighting
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
+    // Skip JavaScript active state management - rely on HTML active classes
+    // The HTML files already have correct active states set manually
+    console.log('🔍 NAVIGATION DEBUG: Skipping JS active state management, using HTML active classes');
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
