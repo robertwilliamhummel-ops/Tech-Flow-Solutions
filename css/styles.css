@@ -1524,6 +1524,28 @@ a:hover {
         box-shadow: 0 0 12px rgba(121, 192, 255, 0.6) !important;
     }
     
+    /* Fix CTA button (Book Now) styling */
+    .nav-menu .nav-link.cta-button {
+        background: var(--bg-gradient) !important;
+        color: var(--text-white) !important;
+        font-weight: 600 !important;
+        margin-top: var(--spacing-sm) !important;
+        box-shadow: 0 4px 15px rgba(88, 166, 255, 0.3) !important;
+        border-radius: var(--radius-md) !important;
+    }
+    
+    .nav-menu .nav-link.cta-button::before {
+        background: rgba(255, 255, 255, 0.8) !important;
+        opacity: 1 !important;
+    }
+    
+    .nav-menu .nav-link.cta-button:hover {
+        background: var(--bg-gradient) !important;
+        color: var(--text-white) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4) !important;
+    }
+    
     /* Nuclear approach: Force remove active state from Home link specifically on non-home pages */
     .nav-menu .nav-link[href="index.html"] {
         background: transparent !important;
