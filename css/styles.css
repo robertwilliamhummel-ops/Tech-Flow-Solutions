@@ -3887,21 +3887,16 @@ a:hover {
         font-weight: 700;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         white-space: nowrap; /* Keep text on one line */
+        text-transform: none; /* Ensure no uppercase transformation */
     }
     
     .click-hint i {
         font-size: 0.8rem;
     }
     
-    /* Make service headers wider on mobile to accommodate horizontal layout */
-    .service-header.service-toggle {
-        padding: var(--spacing-sm) var(--spacing-md);
-        min-height: auto; /* Remove fixed height constraints */
-    }
-    
-    .service-title {
-        flex: 1; /* Take up available space */
-        min-width: 0; /* Allow text to wrap if needed */
+    /* More specific targeting to avoid affecting other text */
+    .service-header.service-toggle .click-hint {
+        /* Only target click-hint within service headers */
     }
 }
 
