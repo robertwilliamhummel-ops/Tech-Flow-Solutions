@@ -3883,16 +3883,19 @@ a:hover {
     
     /* Enhanced click-hint visibility and layout for mobile */
     .click-hint {
-        font-size: 0.75rem; /* Smaller text */
-        font-weight: 700;
+        font-size: 0.65rem; /* Much smaller text */
+        font-weight: 600; /* Slightly less bold to compensate for small size */
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         text-transform: none; /* Ensure no uppercase transformation */
         white-space: nowrap; /* Keep shorter text on one line */
-        line-height: 1.2; /* Tighter line height */
+        line-height: 1.1; /* Very tight line height */
+        padding: 2px 4px; /* Minimal padding around just the text */
+        border-radius: 3px; /* Small rounded corners */
+        background: rgba(0, 0, 0, 0.2); /* Subtle background for definition */
     }
     
     .click-hint i {
-        font-size: 0.7rem; /* Smaller icon */
+        font-size: 0.6rem; /* Much smaller icon */
     }
     
     /* Remove the service-header padding change that affected other elements */
