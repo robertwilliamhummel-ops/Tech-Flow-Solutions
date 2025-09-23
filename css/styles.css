@@ -3886,8 +3886,8 @@ a:hover {
         font-size: 0.9rem;
         font-weight: 700;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-        white-space: nowrap; /* Keep text on one line */
         text-transform: none; /* Ensure no uppercase transformation */
+        /* Removed white-space: nowrap to allow wrapping when needed */
     }
     
     .click-hint i {
