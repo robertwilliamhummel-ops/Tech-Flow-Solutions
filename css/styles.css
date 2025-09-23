@@ -3895,10 +3895,7 @@ a:hover {
         font-size: 0.7rem; /* Smaller icon */
     }
     
-    /* Reduce service header padding on mobile for less vertical space */
-    .service-header.service-toggle {
-        padding: var(--spacing-xs) var(--spacing-sm); /* Smaller padding */
-    }
+    /* Remove the service-header padding change that affected other elements */
     
     /* More specific targeting to avoid affecting other text */
     .service-header.service-toggle .click-hint {
