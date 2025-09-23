@@ -1635,6 +1635,18 @@ a:hover {
         transform: translateY(-8px) rotate(-45deg);
     }
     
+    /* Ensure hamburger button remains clickable when active */
+    .hamburger.active {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        z-index: 1002 !important; /* Higher than menu and backdrop */
+    }
+    
+    /* Ensure bars don't interfere with clicks */
+    .hamburger .bar {
+        pointer-events: none;
+    }
+    
     .hero-title {
         font-size: 2rem;
     }

@@ -113,14 +113,26 @@ function initializeNavigation() {
     // Enhanced mobile menu toggle with accessibility
     if (hamburger && navMenu && backdrop) {
         
-        // Toggle menu function
+        // Toggle menu function with enhanced debugging
         function toggleMenu() {
+            console.log('🔄 TOGGLE MENU CALLED:', {
+                currentState: isMenuOpen,
+                aboutToBecome: !isMenuOpen
+            });
+            
             isMenuOpen = !isMenuOpen;
             
             // Update classes
             hamburger.classList.toggle('active', isMenuOpen);
             navMenu.classList.toggle('active', isMenuOpen);
             backdrop.classList.toggle('active', isMenuOpen);
+            
+            console.log('✅ CLASSES UPDATED:', {
+                newState: isMenuOpen,
+                hamburgerActive: hamburger.classList.contains('active'),
+                menuActive: navMenu.classList.contains('active'),
+                backdropActive: backdrop.classList.contains('active')
+            });
             
             // Update ARIA attributes
             hamburger.setAttribute('aria-expanded', isMenuOpen);
@@ -147,8 +159,13 @@ function initializeNavigation() {
             }
         }
         
-        // Close menu function
+        // Close menu function with debugging
         function closeMenu() {
+            console.log('❌ CLOSE MENU CALLED:', {
+                currentState: isMenuOpen,
+                willClose: isMenuOpen
+            });
+            
             if (isMenuOpen) {
                 isMenuOpen = false;
                 hamburger.classList.remove('active');
@@ -157,14 +174,96 @@ function initializeNavigation() {
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
                 navMenu.style.overflowY = '';
+                
+                console.log('✅ MENU CLOSED:', {
+                    newState: isMenuOpen,
+                    hamburgerActive: hamburger.classList.contains('active'),
+                    menuActive: navMenu.classList.contains('active')
+                });
+            } else {
+                console.log('⚠️ CLOSE MENU CALLED BUT MENU ALREADY CLOSED');
             }
         }
         
-        // Hamburger click handler
-        hamburger.addEventListener('click', toggleMenu);
+        // Hamburger click handler with enhanced debugging and event handling
+        hamburger.addEventListener('click', function(e) {
+            // Prevent event bubbling that might interfere
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('🍔 HAMBURGER CLICK EVENT:', {
+                timestamp: new Date().toLocaleTimeString(),
+                currentMenuState: isMenuOpen,
+                hamburgerHasActive: hamburger.classList.contains('active'),
+                menuHasActive: navMenu.classList.contains('active'),
+                event: e,
+                target: e.target,
+                currentTarget: e.currentTarget,
+                clientX: e.clientX,
+                clientY: e.clientY
+            });
+            
+            toggleMenu();
+            
+            // Log state after toggle
+            setTimeout(() => {
+                console.log('🔄 AFTER TOGGLE:', {
+                    newMenuState: isMenuOpen,
+                    hamburgerHasActive: hamburger.classList.contains('active'),
+                    menuHasActive: navMenu.classList.contains('active')
+                });
+            }, 50);
+        });
         
-        // Backdrop click handler
-        backdrop.addEventListener('click', closeMenu);
+        // Add additional event listeners for better mobile support
+        hamburger.addEventListener('touchstart', function(e) {
+            console.log('👆 HAMBURGER TOUCH START');
+        });
+        
+        hamburger.addEventListener('touchend', function(e) {
+            console.log('👆 HAMBURGER TOUCH END');
+            // Prevent the click event from firing twice on mobile
+            e.preventDefault();
+        });
+        
+        // Fallback mechanism: Double-click detection for stubborn cases
+        let lastClickTime = 0;
+        hamburger.addEventListener('dblclick', function(e) {
+            console.log('🔄 DOUBLE CLICK DETECTED - FORCING TOGGLE');
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Additional fallback: Long press detection
+        let longPressTimer;
+        hamburger.addEventListener('mousedown', function(e) {
+            longPressTimer = setTimeout(() => {
+                console.log('⏰ LONG PRESS DETECTED - FORCING CLOSE');
+                if (isMenuOpen) {
+                    closeMenu();
+                }
+            }, 1000);
+        });
+        
+        hamburger.addEventListener('mouseup', function(e) {
+            clearTimeout(longPressTimer);
+        });
+        
+        hamburger.addEventListener('mouseleave', function(e) {
+            clearTimeout(longPressTimer);
+        });
+        
+        // Backdrop click handler with debugging
+        backdrop.addEventListener('click', function(e) {
+            console.log('🎭 BACKDROP CLICKED:', {
+                timestamp: new Date().toLocaleTimeString(),
+                target: e.target,
+                currentTarget: e.currentTarget,
+                menuState: isMenuOpen
+            });
+            closeMenu();
+        });
         
         // Close mobile menu when clicking on a link
         navLinks.forEach(link => {
