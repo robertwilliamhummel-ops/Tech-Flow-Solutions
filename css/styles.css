@@ -3867,20 +3867,41 @@ a:hover {
     display: none;
 }
 
+.click-hint .desktop-text {
+    display: inline;
+}
+
 @media (max-width: 768px) {
-    /* Remove mobile-specific text - use same text as desktop */
+    /* Switch to mobile-specific text */
+    .click-hint .desktop-text {
+        display: none;
+    }
     
-    /* Remove enhanced mobile collapsible styling - keep same as desktop */
+    .click-hint .mobile-text {
+        display: inline;
+    }
     
-    /* Enhanced click-hint visibility for mobile */
+    /* Enhanced click-hint visibility and layout for mobile */
     .click-hint {
         font-size: 0.9rem;
         font-weight: 700;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        white-space: nowrap; /* Keep text on one line */
     }
     
     .click-hint i {
         font-size: 0.8rem;
+    }
+    
+    /* Make service headers wider on mobile to accommodate horizontal layout */
+    .service-header.service-toggle {
+        padding: var(--spacing-sm) var(--spacing-md);
+        min-height: auto; /* Remove fixed height constraints */
+    }
+    
+    .service-title {
+        flex: 1; /* Take up available space */
+        min-width: 0; /* Allow text to wrap if needed */
     }
 }
 
