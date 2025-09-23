@@ -187,8 +187,7 @@ function initializeNavigation() {
         
         // Hamburger click handler with enhanced debugging and event handling
         hamburger.addEventListener('click', function(e) {
-            // Prevent event bubbling that might interfere
-            e.preventDefault();
+            // Only stop propagation, don't prevent default for button clicks
             e.stopPropagation();
             
             console.log('🍔 HAMBURGER CLICK EVENT:', {
@@ -222,15 +221,14 @@ function initializeNavigation() {
         
         hamburger.addEventListener('touchend', function(e) {
             console.log('👆 HAMBURGER TOUCH END');
-            // Prevent the click event from firing twice on mobile
-            e.preventDefault();
+            // Only prevent default on touch end to avoid double-firing
+            // but don't prevent the button's normal click behavior
         });
         
         // Fallback mechanism: Double-click detection for stubborn cases
         let lastClickTime = 0;
         hamburger.addEventListener('dblclick', function(e) {
             console.log('🔄 DOUBLE CLICK DETECTED - FORCING TOGGLE');
-            e.preventDefault();
             e.stopPropagation();
             toggleMenu();
         });
