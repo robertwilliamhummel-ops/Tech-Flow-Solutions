@@ -33,7 +33,12 @@ body {
     
     /* Ensure mobile menu doesn't create horizontal overflow */
     .nav-menu {
-        right: -320px !important; /* Use fixed pixel value instead of percentage */
+        right: -320px; /* Use fixed pixel value instead of percentage */
+    }
+    
+    /* Override for active state - must come after the mobile override */
+    .nav-menu.active {
+        right: 0 !important; /* Ensure active state overrides the mobile positioning */
     }
 }
 
