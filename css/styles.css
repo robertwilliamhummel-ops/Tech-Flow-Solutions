@@ -3883,15 +3883,21 @@ a:hover {
     
     /* Enhanced click-hint visibility and layout for mobile */
     .click-hint {
-        font-size: 0.9rem;
+        font-size: 0.75rem; /* Smaller text */
         font-weight: 700;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         text-transform: none; /* Ensure no uppercase transformation */
         white-space: nowrap; /* Keep shorter text on one line */
+        line-height: 1.2; /* Tighter line height */
     }
     
     .click-hint i {
-        font-size: 0.8rem;
+        font-size: 0.7rem; /* Smaller icon */
+    }
+    
+    /* Reduce service header padding on mobile for less vertical space */
+    .service-header.service-toggle {
+        padding: var(--spacing-xs) var(--spacing-sm); /* Smaller padding */
     }
     
     /* More specific targeting to avoid affecting other text */
