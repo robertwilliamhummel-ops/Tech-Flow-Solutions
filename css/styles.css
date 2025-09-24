@@ -4758,6 +4758,21 @@ a:hover {
 .alternative-contact {
     padding: var(--spacing-2xl) 0;
     background: var(--bg-secondary);
+    position: static;           /* Ensure normal document flow */
+    z-index: auto;              /* Reset any z-index conflicts */
+}
+
+/* Mobile fix for alternative contact */
+@media (max-width: 768px) {
+    .alternative-contact {
+        position: static !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: auto !important;
+        height: auto !important;
+        transform: none !important;
+    }
 }
 
 .alt-contact-content {
