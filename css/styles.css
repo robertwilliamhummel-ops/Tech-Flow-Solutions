@@ -4895,14 +4895,17 @@ a:hover {
     }
     
     .form-step {
-        padding: var(--spacing-md);
-        width: 100%;
-        overflow-x: hidden;  /* Prevent horizontal scrolling in steps */
+        padding: var(--spacing-sm);
+        width: 1300px;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
         /* Removed max-height and overflow-y to restore natural page scrolling */
     }
     
     .booking-review {
-        gap: var(--spacing-md);
+        gap: var(--spacing-sm);
         width: 1300px;
         max-width: 100%;
         margin: 0 auto;
@@ -4911,12 +4914,33 @@ a:hover {
     }
     
     .review-section {
-        padding: var(--spacing-md);
+        padding: var(--spacing-sm);
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
         word-wrap: break-word;
         overflow-wrap: break-word;
+    }
+    
+    .review-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .review-item .label {
+        flex-shrink: 0;
+        min-width: auto;
+        text-align: left;
+    }
+    
+    .review-item .value {
+        flex: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        text-align: left;
     }
     
     .booking-terms {
@@ -4970,8 +4994,24 @@ a:hover {
         font-size: 1.25rem;
     }
     
+    .form-step {
+        padding: var(--spacing-xs);
+        width: 1300px;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    .booking-review {
+        gap: var(--spacing-xs);
+        width: 1300px;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
     .review-section {
-        padding: var(--spacing-sm);
+        padding: var(--spacing-xs);
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -4979,11 +5019,25 @@ a:hover {
         overflow-wrap: break-word;
     }
     
-    .booking-review {
-        width: 1300px;
-        max-width: 100%;
-        margin: 0 auto;
-        box-sizing: border-box;
+    .review-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .review-item .label {
+        flex-shrink: 0;
+        min-width: auto;
+        text-align: left;
+    }
+    
+    .review-item .value {
+        flex: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        text-align: left;
     }
     
     .booking-terms {
