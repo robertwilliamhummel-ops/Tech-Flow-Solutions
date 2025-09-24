@@ -5080,6 +5080,11 @@ a:hover {
     
     /* Add bottom padding only to step 4 content to account for fixed button */
     .booking-form .form-step[data-step="4"] {
+        width: 1300px;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow-x: hidden;
         padding-bottom: calc(var(--spacing-sm) + 120px);
     }
     
