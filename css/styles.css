@@ -4879,8 +4879,7 @@ a:hover {
     
     .form-step {
         padding: var(--spacing-md);
-        max-height: calc(100vh - 200px);  /* Ensure content fits in viewport */
-        overflow-y: auto;                 /* Enable scrolling */
+        /* Removed max-height and overflow-y to restore natural page scrolling */
     }
     
     .booking-review {
@@ -4891,14 +4890,10 @@ a:hover {
         padding: var(--spacing-md);
     }
     
+    /* Remove sticky positioning that was fragmenting the layout */
     .step-actions {
-        position: sticky;
-        bottom: 0;
-        background: var(--bg-dark);
         padding: var(--spacing-md);
-        margin: 0 calc(-1 * var(--spacing-md));
-        border-top: 1px solid var(--light-gray);
-        z-index: 10;
+        margin-top: var(--spacing-lg);
     }
 }
 
@@ -4909,7 +4904,7 @@ a:hover {
     
     .form-step {
         padding: var(--spacing-sm);
-        max-height: calc(100vh - 180px);  /* More space on small screens */
+        /* Removed max-height constraint */
     }
     
     .step-header h2 {
