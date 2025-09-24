@@ -4947,8 +4947,8 @@ a:hover {
         width: 100%;       /* Full width on mobile for easier tapping */
     }
     
-    /* Ensure booking confirmation button is always visible */
-    .booking-form .step-actions {
+    /* Only fix positioning for step 4 (confirmation step) */
+    .booking-form .form-step[data-step="4"] .step-actions {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -4960,9 +4960,20 @@ a:hover {
         box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     
-    /* Add bottom padding to form content to account for fixed button */
-    .booking-form .form-step {
+    /* Add bottom padding only to step 4 content to account for fixed button */
+    .booking-form .form-step[data-step="4"] {
         padding-bottom: calc(var(--spacing-sm) + 60px);
+    }
+    
+    /* Keep other steps with normal positioning */
+    .booking-form .form-step[data-step="1"] .step-actions,
+    .booking-form .form-step[data-step="2"] .step-actions,
+    .booking-form .form-step[data-step="3"] .step-actions {
+        position: static;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        margin: var(--spacing-lg) 0 0 0;
     }
 }
 
