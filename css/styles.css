@@ -4887,11 +4887,11 @@ a:hover {
 /* Mobile optimizations for booking form */
 @media (max-width: 768px) {
     .booking-form-container {
-        width: calc(100vw - 2 * var(--spacing-sm));  /* Prevent horizontal overflow */
-        max-width: 100%;
-        margin: 0 var(--spacing-sm);
+        width: 1300px;           /* Fixed width for consistency */
+        max-width: 100%;         /* Mobile responsive */
+        margin: 0 auto;          /* Center alignment */
         border-radius: var(--radius-md);
-        overflow-x: hidden;  /* Prevent horizontal scrolling */
+        overflow-x: hidden;      /* Prevent horizontal scrolling */
     }
     
     .form-step {
@@ -4903,14 +4903,28 @@ a:hover {
     
     .booking-review {
         gap: var(--spacing-md);
-        width: 100%;
+        width: 1300px;
+        max-width: 100%;
+        margin: 0 auto;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
     
     .review-section {
         padding: var(--spacing-md);
         width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .booking-terms {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     /* Remove sticky positioning that was fragmenting the layout */
@@ -4924,8 +4938,9 @@ a:hover {
 
 @media (max-width: 480px) {
     .booking-form-container {
-        width: calc(100vw - 2 * var(--spacing-xs));  /* Tighter mobile constraints */
-        margin: 0 var(--spacing-xs);
+        width: 1300px;           /* Fixed width for consistency */
+        max-width: 100%;         /* Mobile responsive */
+        margin: 0 auto;          /* Center alignment */
         overflow-x: hidden;
     }
     
@@ -4957,6 +4972,26 @@ a:hover {
     
     .review-section {
         padding: var(--spacing-sm);
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .booking-review {
+        width: 1300px;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    .booking-terms {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     .step-actions {
@@ -4975,10 +5010,10 @@ a:hover {
     .booking-form .form-step[data-step="4"] .step-actions {
         position: fixed;
         bottom: 0;
-        left: var(--spacing-sm);
-        right: var(--spacing-sm);
-        width: calc(100vw - 2 * var(--spacing-sm));
-        max-width: calc(1300px - 2 * var(--spacing-sm));
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1300px;
+        max-width: calc(100% - 2 * var(--spacing-sm));
         background: var(--bg-dark);
         border-top: 2px solid var(--primary-blue);
         padding: var(--spacing-sm);
