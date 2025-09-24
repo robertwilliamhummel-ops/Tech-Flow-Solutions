@@ -603,7 +603,7 @@ function showNotification(message, type = 'info') {
     notification.innerHTML = `
         <div class="notification-content">
             <span class="notification-message">${message}</span>
-            <button class="notification-close">&times;</button>
+            <button class="notification-close">Got it!</button>
         </div>
     `;
     
@@ -614,15 +614,54 @@ function showNotification(message, type = 'info') {
         notification.classList.add('show');
     }, 100);
     
-    // Auto hide after 5 seconds
+    // Auto hide after 8 seconds (longer for mobile users)
     setTimeout(() => {
         hideNotification(notification);
-    }, 5000);
+    }, 8000);
     
     // Close button functionality
     notification.querySelector('.notification-close').addEventListener('click', () => {
         hideNotification(notification);
     });
+    
+    // Add backdrop for mobile
+    if (window.innerWidth <= 768) {
+        const backdrop = document.createElement('div');
+        backdrop.className = 'notification-backdrop';
+        backdrop.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        `;
+        document.body.appendChild(backdrop);
+        
+        setTimeout(() => {
+            backdrop.style.opacity = '1';
+        }, 100);
+        
+        // Remove backdrop when notification is closed
+        const originalHide = hideNotification;
+        window.hideNotificationWithBackdrop = function(notif) {
+            backdrop.style.opacity = '0';
+            setTimeout(() => {
+                if (backdrop.parentNode) {
+                    backdrop.parentNode.removeChild(backdrop);
+                }
+            }, 300);
+            originalHide(notif);
+        };
+        
+        // Update close button to use backdrop version
+        notification.querySelector('.notification-close').addEventListener('click', () => {
+            window.hideNotificationWithBackdrop(notification);
+        });
+    }
 }
 
 function hideNotification(notification) {
@@ -656,43 +695,96 @@ function initializeAnimations() {
         
         .notification {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            padding: 16px;
-            transform: translateX(100%);
-            transition: transform 0.3s ease-out;
-            z-index: 1000;
-            max-width: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            padding: 24px;
+            transition: all 0.3s ease-out;
+            z-index: 10000;
+            max-width: 90vw;
+            width: 400px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
         }
         
         .notification.show {
-            transform: translateX(0);
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            visibility: visible;
         }
         
         .notification-success {
-            border-left: 4px solid #10b981;
+            border: 3px solid #10b981;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(16, 185, 129, 0.1) 100%);
         }
         
         .notification-error {
-            border-left: 4px solid #ef4444;
+            border: 3px solid #ef4444;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(239, 68, 68, 0.1) 100%);
+        }
+        
+        /* Mobile-specific notification styles */
+        @media (max-width: 768px) {
+            .notification {
+                width: 90vw;
+                max-width: 350px;
+                padding: 20px;
+                font-size: 1.1rem;
+                border-radius: 16px;
+            }
         }
         
         .notification-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            gap: 16px;
+        }
+        
+        .notification-message {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-primary);
         }
         
         .notification-close {
-            background: none;
+            background: var(--primary-blue);
+            color: white;
             border: none;
-            font-size: 20px;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            color: #6b7280;
-            margin-left: 12px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .notification-close:hover {
+            background: var(--secondary-blue);
+        }
+        
+        /* Success notification icon */
+        .notification-success .notification-content::before {
+            content: '✓';
+            display: block;
+            font-size: 3rem;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+        
+        /* Error notification icon */
+        .notification-error .notification-content::before {
+            content: '⚠';
+            display: block;
+            font-size: 3rem;
+            color: #ef4444;
+            margin-bottom: 8px;
         }
         
         .field-error {

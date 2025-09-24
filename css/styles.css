@@ -4194,9 +4194,9 @@ a:hover {
 
 /* Booking Form Container */
 .booking-form-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 1300px;           /* Fixed width for consistency */
+    max-width: 100%;         /* Mobile responsive */
+    margin: 0 auto;          /* Center alignment */
     background: var(--bg-dark);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
@@ -4211,6 +4211,8 @@ a:hover {
 .form-step {
     padding: var(--spacing-2xl);
     display: none;
+    min-height: auto;        /* Allow content to determine height */
+    overflow-y: auto;        /* Enable scrolling if needed */
 }
 
 .form-step.active {
@@ -4867,9 +4869,47 @@ a:hover {
     }
 }
 
-@media (max-width: 480px) {
+/* Mobile optimizations for booking form */
+@media (max-width: 768px) {
+    .booking-form-container {
+        width: 100%;
+        margin: 0 var(--spacing-sm);
+        border-radius: var(--radius-md);
+    }
+    
     .form-step {
-        padding: var(--spacing-lg);
+        padding: var(--spacing-md);
+        max-height: calc(100vh - 200px);  /* Ensure content fits in viewport */
+        overflow-y: auto;                 /* Enable scrolling */
+    }
+    
+    .booking-review {
+        gap: var(--spacing-md);
+    }
+    
+    .review-section {
+        padding: var(--spacing-md);
+    }
+    
+    .step-actions {
+        position: sticky;
+        bottom: 0;
+        background: var(--bg-dark);
+        padding: var(--spacing-md);
+        margin: 0 calc(-1 * var(--spacing-md));
+        border-top: 1px solid var(--light-gray);
+        z-index: 10;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-form-container {
+        margin: 0 var(--spacing-xs);
+    }
+    
+    .form-step {
+        padding: var(--spacing-sm);
+        max-height: calc(100vh - 180px);  /* More space on small screens */
     }
     
     .step-header h2 {
@@ -4889,6 +4929,40 @@ a:hover {
     
     .service-icon i {
         font-size: 1.25rem;
+    }
+    
+    .review-section {
+        padding: var(--spacing-sm);
+    }
+    
+    .step-actions {
+        padding: var(--spacing-sm);
+        margin: 0 calc(-1 * var(--spacing-sm));
+    }
+    
+    .step-actions .btn {
+        font-size: 0.9rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+        min-height: 44px;  /* Ensure touch-friendly button size */
+        width: 100%;       /* Full width on mobile for easier tapping */
+    }
+    
+    /* Ensure booking confirmation button is always visible */
+    .booking-form .step-actions {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--bg-dark);
+        border-top: 2px solid var(--primary-blue);
+        padding: var(--spacing-sm);
+        z-index: 100;
+        box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Add bottom padding to form content to account for fixed button */
+    .booking-form .form-step {
+        padding-bottom: calc(var(--spacing-sm) + 60px);
     }
 }
 
