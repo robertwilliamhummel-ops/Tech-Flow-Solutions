@@ -4887,38 +4887,52 @@ a:hover {
 /* Mobile optimizations for booking form */
 @media (max-width: 768px) {
     .booking-form-container {
-        width: 100%;
+        width: calc(100vw - 2 * var(--spacing-sm));  /* Prevent horizontal overflow */
+        max-width: 100%;
         margin: 0 var(--spacing-sm);
         border-radius: var(--radius-md);
+        overflow-x: hidden;  /* Prevent horizontal scrolling */
     }
     
     .form-step {
         padding: var(--spacing-md);
+        width: 100%;
+        overflow-x: hidden;  /* Prevent horizontal scrolling in steps */
         /* Removed max-height and overflow-y to restore natural page scrolling */
     }
     
     .booking-review {
         gap: var(--spacing-md);
+        width: 100%;
+        overflow-x: hidden;
     }
     
     .review-section {
         padding: var(--spacing-md);
+        width: 100%;
+        box-sizing: border-box;
     }
     
     /* Remove sticky positioning that was fragmenting the layout */
     .step-actions {
         padding: var(--spacing-md);
         margin-top: var(--spacing-lg);
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
 @media (max-width: 480px) {
     .booking-form-container {
+        width: calc(100vw - 2 * var(--spacing-xs));  /* Tighter mobile constraints */
         margin: 0 var(--spacing-xs);
+        overflow-x: hidden;
     }
     
     .form-step {
         padding: var(--spacing-sm);
+        width: 100%;
+        overflow-x: hidden;
         /* Removed max-height constraint */
     }
     
