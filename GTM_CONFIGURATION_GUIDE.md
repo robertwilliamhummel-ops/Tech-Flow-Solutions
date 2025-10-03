@@ -12,11 +12,11 @@
 
 ### Create GA4 Configuration Tag
 1. **Go to GTM Dashboard** → Tags → New
-2. **Tag Configuration**: Google Analytics: GA4 Configuration
+2. **Tag Configuration**: Select **"Google Tag"** (under Featured section)
 3. **Tag Name**: `GA4 - Configuration`
-4. **Measurement ID**: Enter your GA4 Measurement ID (G-XXXXXXXXXX)
+4. **Tag ID**: Enter your GA4 Measurement ID `G-4P6GE8ETQQ`
 5. **Triggering**: All Pages
-6. **Enhanced Measurement**: Enable all options:
+6. **Configuration Settings**: Enable Enhanced Measurement (recommended):
    - Page views ✓
    - Scrolls ✓
    - Outbound clicks ✓
